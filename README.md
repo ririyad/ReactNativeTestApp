@@ -8,3 +8,4 @@ As I am still new to learn React native, I need to see the following topic in de
   - components (component life cycle)
   - state
   - props
+- Flexbox
