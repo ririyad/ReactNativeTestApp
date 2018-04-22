@@ -1,15 +1,40 @@
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { AppRegistry, View, TextInput } from 'react-native';
 
-
-export default class FlexDimensionBasics extends Component {
+class UselessTextInput extends Component {
   render() {
     return (
-      <View style = {{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} >
-        <View style={{width:50, height: 50, backgroundColor : 'powderblue' }}/>
-        <View style={{width:50, height: 50,backgroundColor : 'skyblue' }}/>
-        <View style={{width:50, height: 50,backgroundColor : 'steelblue' }}/>
-        </View>
+      <TextInput
+        {...this.props}
+        editable = {true}
+        maxLength = {40}
+      />
+    );
+  }
+}
+
+export default class UselessTextInputMultiline extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: 'Useless Multiline Placeholder',
+    };
+  }
+
+  render() {
+    return (
+     <View style={{
+       backgroundColor: this.state.text,
+       borderBottomColor: '#000000',
+       borderBottomWidth: 1 }}
+     >
+       <UselessTextInput
+         multiline = {true}
+         numberOfLines = {4}
+         onChangeText={(text) => this.setState({text})}
+         value={this.state.text}
+       />
+     </View>
     );
   }
 }
