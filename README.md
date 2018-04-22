@@ -7,6 +7,7 @@ As I am still new to learn React native, I need to see the following topic in de
   - JSX
   - components (component life cycle)
   - state
+    - [have a clear idea how **setState** works](https://reactjs.org/docs/react-component.html#setstate)
   - props
 - Flexbox
 
