@@ -1,13 +1,36 @@
-import React from 'react';
-import { AppRegistry, Image } from 'react-native';
+import React, { Component } from 'react';
+import { AppRegistry, Text, View } from 'react-native';
 
-export default class App extends React.Component {
+
+class Blink extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {isShowingText: true};
+
+    //toggling state every second
+    setInterval( ()=> {
+      this.setState(previousState => {
+        return { isShowingText: !previousState.isShowingText };
+      });
+    }, 1000);
+  }
   render() {
-    let pic = {
-      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-    };
+    let display = this.state.isShowingText?this.props.text: ' ';
     return (
-      <Image source = {pic} style = {{width: 193, height: 110}} />
+      <Text>{ display } </Text>
+    );
+  }
+}
+
+export default class Blinking extends Component {
+  render() {
+    return (
+      <View>
+       <Blink text = 'This text is blinking' />
+       <Blink text = 'Hey, its really blinking'  />
+       <Blink text = 'Can you see me?' />
+       <Blink text = 'Yes you can!' />
+      </View>
     );
   }
 }
