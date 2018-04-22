@@ -9,3 +9,9 @@ As I am still new to learn React native, I need to see the following topic in de
   - state
   - props
 - Flexbox
+
+### Useful info
+---
+
+- [Information of upgrading to the new React Native version](https://facebook.github.io/react-native/docs/upgrading.html)
+- [Version support information](https://github.com/react-community/create-react-native-app/blob/master/VERSIONS.md)
