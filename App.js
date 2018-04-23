@@ -1,40 +1,35 @@
-import React, { Component } from 'react';
-import { AppRegistry, View, TextInput } from 'react-native';
+import React, {Component} from 'react';
+import {AppRegistry, FlatList, StyleSheet, Text, View} from 'react-native';
 
-class UselessTextInput extends Component {
+export default class FlatListBasics extends Component {
   render() {
     return (
-      <TextInput
-        {...this.props}
-        editable = {true}
-        maxLength = {40}
-      />
+      <View style = {styles.container}>
+        <FlatList
+          data={[
+            {key: 'Devin'},
+            {key: 'James'},
+            {key: 'Jackson'},
+            {key: 'Joel'},
+            {key: 'John'},
+            {key: 'Jillian'},            
+            {key: 'Julie'},            
+          ]}
+          renderItem={({item})=> <Text style={styles.item}>{item.key} </Text>}
+            />
+      </View>
     );
   }
 }
 
-export default class UselessTextInputMultiline extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: 'Useless Multiline Placeholder',
-    };
-  }
-
-  render() {
-    return (
-     <View style={{
-       backgroundColor: this.state.text,
-       borderBottomColor: '#000000',
-       borderBottomWidth: 1 }}
-     >
-       <UselessTextInput
-         multiline = {true}
-         numberOfLines = {4}
-         onChangeText={(text) => this.setState({text})}
-         value={this.state.text}
-       />
-     </View>
-    );
-  }
-}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 22,
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+  },
+})
